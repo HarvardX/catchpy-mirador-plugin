@@ -41,7 +41,7 @@ class CatchpyAnnotationLoader extends React.Component {
         headers: config.databaseAuthorizationHeaders(),
       }).then(res => res.json())
         .then((result) => {
-          let cleanup = config.resultHandler(result);
+          let cleanup = config.resultHandler(result, canvas.id);
           if (cleanup.json.resources.length > 0) {
             receiveAnnotation(canvas.id, cleanup.id, cleanup.json);
           }
